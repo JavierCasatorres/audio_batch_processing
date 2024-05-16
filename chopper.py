@@ -30,6 +30,6 @@ completion = list(np.linspace(0, nchunks, num=100).astype('int'))
 for chunk in range(nchunks):
     if chunk in completion:
         print(f"{completion.index(chunk)}% completed")
-    audio[chunk*args.chop_size:((chunk+1)*args.chop_size)].export(outfolder / Path(file.stem + f"_chunk{chunk}.{args.out_format}"), format=args.out_format)   
+    audio[chunk*args.chop_size:((chunk+1)*args.chop_size)].export(outfolder / Path(file.stem + f"_chunk{str(chunk).zfill(4)}.{args.out_format}"), format=args.out_format)   
 print(f"File chopped succesfully, {nchunks} fragments"
       f" of {args.chop_size/1000} seconds each")
